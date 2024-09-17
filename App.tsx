@@ -1,25 +1,19 @@
-import { Text, View } from "react-native";
-import { MD3Theme, PaperProvider, useTheme } from "react-native-paper";
+import { PaperProvider } from "react-native-paper";
+import Home from "./screen/Home";
+import { StyleSheet, View } from "react-native";
 
-const createStyles = (theme: MD3Theme) => ({
-  container: {
-    padding: 16,
-    backgroundColor: theme.colors.background,
-  },
-  text: {
-    color: theme.colors.primary,
-    fontSize: 18,
+const styles = StyleSheet.create({
+  rootContainer: {
+    height: "100%",
+    backgroundColor: "black",
   },
 });
 
 export default function App() {
-  const theme = useTheme();
-  const styles = createStyles(theme);
-
   return (
     <PaperProvider>
-      <View style={styles.container}>
-        <Text style={styles.text}>Hello, World!</Text>
+      <View style={styles.rootContainer}>
+        <Home />
       </View>
     </PaperProvider>
   );
