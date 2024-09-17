@@ -2,6 +2,27 @@ import { Image, ScrollView, Text, View } from "react-native";
 import { MD3Theme, useTheme } from "react-native-paper";
 import nowPlaying from "../../../mock/nowPlaying.json";
 
+const createStyles = (theme: MD3Theme) => ({
+  container: {
+    padding: 16,
+    backgroundColor: "black",
+  },
+  title: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "700" as "700",
+    marginBottom: 10,
+  },
+  item: {
+    backgroundColor: "tomato",
+    marginRight: 10,
+  },
+  image: {
+    width: 92,
+    aspectRatio: 2 / 3,
+  },
+});
+
 export default function NowPlaying() {
   const theme = useTheme();
   const styles = createStyles(theme);
@@ -9,7 +30,7 @@ export default function NowPlaying() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Now Playing</Text>
+      <Text style={styles.title}>Now Playing</Text>
       <ScrollView horizontal={true}>
         {nowPlaying.results.map((movie) => {
           return (
@@ -25,24 +46,3 @@ export default function NowPlaying() {
     </View>
   );
 }
-
-const createStyles = (theme: MD3Theme) => ({
-  container: {
-    padding: 16,
-    backgroundColor: "black",
-  },
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  item: {
-    backgroundColor: "tomato",
-    marginRight: 10,
-  },
-  image: {
-    width: 92,
-    aspectRatio: 2 / 3,
-  },
-});
