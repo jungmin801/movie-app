@@ -14,7 +14,6 @@ const createStyles = (theme: MD3Theme) => ({
     marginBottom: 10,
   },
   item: {
-    backgroundColor: "tomato",
     marginRight: 10,
   },
   image: {

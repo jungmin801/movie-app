@@ -1,20 +1,28 @@
 import { PaperProvider } from "react-native-paper";
 import Home from "./screen/Home";
-import { StyleSheet, View } from "react-native";
+import Detail from "./screen/Detail";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const styles = StyleSheet.create({
-  rootContainer: {
-    height: "100%",
-    backgroundColor: "black",
-  },
-});
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <PaperProvider>
-      <View style={styles.rootContainer}>
-        <Home />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Detail"
+            component={Detail}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }

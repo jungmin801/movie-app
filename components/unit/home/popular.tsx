@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import popular from "../../../mock/popular.json";
 import { Button, useTheme } from "react-native-paper";
+import { HomeScreenProps } from "../../../screen/Home";
 
 const styles = StyleSheet.create({
   container: {
@@ -43,10 +44,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Popular() {
+export default function Popular({ navigation }: HomeScreenProps) {
   const theme = useTheme();
   const imageUrl = "https://image.tmdb.org/t/p/w500";
-
   return (
     <View style={styles.container}>
       <Image
@@ -74,6 +74,9 @@ export default function Popular() {
             mode="elevated"
             textColor={theme.colors.primary}
             contentStyle={{ width: 100 }}
+            onPress={() =>
+              navigation.navigate("Detail", { movieId: popular.results[0].id })
+            }
           >
             Detail
           </Button>
